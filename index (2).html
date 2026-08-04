@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genrise Logistics — Scale across Scandinavia</title>
+<meta name="description" content="Genrise Logistics helps ambitious brands enter and grow in the Scandinavian market — fulfilment, freight and local market expertise under one roof.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#141e2b;
+  --navy-2:#182432;
+  --navy-card:#1b2836;
+  --light:#f2f4f6;
+  --white:#ffffff;
+  --ink:#182430;
+  --text-dim:#aab6c2;
+  --text-mute:#6f7d8b;
+  --line-dark:#28364656;
+  --line-light:#e2e6ea;
+  --orange:#ec6a3f;
+  --orange-hover:#f47b52;
+  --display:'Archivo',system-ui,sans-serif;
+  --body:'Public Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--white);background:var(--navy);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.015em}
+a{color:inherit}
+.wrap{max-width:1220px;margin:0 auto;padding:0 32px}
+.eyebrow{display:flex;align-items:center;gap:16px;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--orange)}
+.eyebrow::before{content:"";width:36px;height:1.5px;background:var(--orange)}
+.eyebrow .alt{color:var(--text-dim)}
+.btn{display:inline-block;font-family:var(--body);font-size:16px;font-weight:600;text-decoration:none;padding:16px 30px;border-radius:6px;cursor:pointer;border:1px solid transparent;transition:all .15s}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-orange:hover{background:var(--orange-hover)}
+.btn-outline-dark{background:transparent;color:#fff;border-color:#3a4a5b}
+.btn-outline-dark:hover{border-color:#fff}
+.btn-outline-light{background:transparent;color:var(--ink);border-color:#c9d0d7}
+.btn-outline-light:hover{border-color:var(--ink)}
+.mono-note{font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-mute)}
+section{padding:130px 0}
+@media(max-width:768px){section{padding:80px 0}}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:60;background:var(--navy);border-bottom:1px solid var(--line-dark)}
+.nav-inner{max-width:1220px;margin:0 auto;padding:0 32px;height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:12px}
+.logo .dot{width:10px;height:10px;border-radius:50%;background:var(--orange)}
+.nav-right{display:flex;align-items:center;gap:36px}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:15.5px;font-weight:500;text-decoration:none;color:var(--text-dim)}
+.nav-links a:hover{color:#fff}
+.nav-cta{font-size:15.5px;font-weight:600;text-decoration:none;background:var(--orange);color:#fff;padding:13px 24px;border-radius:6px;transition:background .15s}
+.nav-cta:hover{background:var(--orange-hover)}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:120px 0 140px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(52px,7vw,96px);font-weight:900;line-height:1.0;margin:34px 0 36px}
+.hero h1 .hl{color:var(--orange)}
+.hero .lead{font-size:19px;color:var(--text-dim);max-width:34em;margin-bottom:44px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:38px}
+/* map */
+.map{position:relative;aspect-ratio:1/.95;min-height:420px}
+.map svg{width:100%;height:100%;overflow:visible}
+.map .grid-line{stroke:#26333f;stroke-width:1}
+.map .route{fill:none;stroke:#4a5a6a;stroke-width:1.5;stroke-dasharray:4 6}
+.map .route.hot{stroke:var(--orange)}
+.map .node{fill:#fff}
+.map .node.muted{fill:#4a5a6a}
+.map .hub{fill:var(--orange)}
+.map .hub-ring{fill:none;stroke:var(--orange);stroke-width:1.5;opacity:.55}
+.map text{font-family:var(--mono);letter-spacing:.16em}
+.map .code{fill:#fff;font-size:15px;font-weight:500}
+.map .code.muted{fill:#5c6c7b}
+.map .city{fill:#5c6c7b;font-size:11px}
+.map .city.hot{fill:#8a9aa9}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.map{min-height:340px}}
+
+/* ---------- light section (day-to-day) ---------- */
+.day{background:var(--light);color:var(--ink)}
+.day .eyebrow .alt{color:var(--text-mute)}
+.day h2{font-size:clamp(38px,4.6vw,58px);font-weight:800;line-height:1.08;margin:30px 0 26px;max-width:14em}
+.day .lead{font-size:18px;color:#5a6774;max-width:38em;margin-bottom:64px}
+.day-cards{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.dcard{background:var(--white);border:1px solid var(--line-light);border-radius:10px;padding:52px 48px;box-shadow:0 1px 3px rgba(20,30,43,.05)}
+.dcard .id{display:inline-block;font-family:var(--mono);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-mute);border:1px solid var(--line-light);border-radius:4px;padding:8px 14px;margin-bottom:30px}
+.dcard h3{font-size:26px;font-weight:800;margin-bottom:18px}
+.dcard p{font-size:16.5px;color:#5a6774;margin-bottom:34px}
+@media(max-width:860px){.day-cards{grid-template-columns:1fr}.dcard{padding:40px 32px}}
+
+/* ---------- qualify ---------- */
+.qualify h2{font-size:clamp(40px,5vw,64px);font-weight:800;line-height:1.05;margin:30px 0 26px}
+.qualify .lead{font-size:18px;color:var(--text-dim);max-width:40em;margin-bottom:70px}
+.q-grid{display:grid;grid-template-columns:1fr .95fr;gap:64px;align-items:start}
+.crit{border-top:1px solid var(--line-dark);padding:34px 0;display:grid;grid-template-columns:120px 1fr;gap:20px}
+.crit:last-child{border-bottom:1px solid var(--line-dark)}
+.crit .id{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--orange);padding-top:4px}
+.crit h3{font-size:20px;font-weight:700;margin-bottom:10px}
+.crit p{font-size:16px;color:var(--text-dim)}
+.apply-card{background:var(--navy-card);border:1px solid var(--line-dark);border-radius:12px;padding:56px 50px}
+.apply-card h3{font-family:var(--display);font-size:clamp(26px,2.6vw,34px);font-weight:800;line-height:1.15;margin-bottom:20px}
+.apply-card p{color:var(--text-dim);margin-bottom:36px}
+.apply-card .mono-note{display:block;margin-top:30px;color:#7b8a99}
+@media(max-width:900px){.q-grid{grid-template-columns:1fr}.crit{grid-template-columns:90px 1fr}.apply-card{padding:40px 32px}}
+
+/* ---------- admin ---------- */
+.nav-admin{font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--text-mute);border:1px solid #33424f;border-radius:6px;padding:12px 18px;cursor:pointer;transition:all .15s}
+.nav-admin:hover{color:#fff;border-color:#fff}
+.admin-overlay{display:none;position:fixed;inset:0;z-index:100;background:rgba(10,16,24,.8);backdrop-filter:blur(4px);overflow-y:auto;padding:60px 20px}
+.admin-overlay.open{display:block}
+.admin-modal{max-width:860px;margin:0 auto;background:var(--navy-2);border:1px solid #2b3947;border-radius:12px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.admin-close{position:absolute;top:22px;right:26px;background:none;border:none;color:var(--text-mute);font-size:26px;cursor:pointer;line-height:1}
+.admin-close:hover{color:#fff}
+.admin-head{display:flex;justify-content:space-between;align-items:center;padding:20px 30px;border-bottom:1px solid #2b3947;position:relative}
+.admin-head .t{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-mute)}
+.a-dash{display:none}
+.a-tabs{display:flex;border-bottom:1px solid #2b3947;overflow-x:auto}
+.a-tab{font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:16px 22px;background:none;border:none;cursor:pointer;color:var(--text-mute);white-space:nowrap;border-bottom:2px solid transparent}
+.a-tab.active{color:#fff;border-bottom-color:var(--orange)}
+.a-pane{display:none;padding:34px 30px}
+.a-pane.active{display:block}
+.a-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+.a-kpi{background:var(--navy-card);border:1px solid #2b3947;border-radius:8px;padding:18px 16px}
+.a-kpi .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute)}
+.a-kpi .v{font-family:var(--display);font-size:24px;font-weight:800;margin-top:6px}
+.a-kpi .s{font-size:12px;color:var(--text-mute)}
+@media(max-width:700px){.a-kpis{grid-template-columns:1fr 1fr}}
+.a-links{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.a-link{display:flex;justify-content:space-between;align-items:center;background:var(--navy-card);border:1px solid #2b3947;border-radius:8px;padding:16px 20px;text-decoration:none;font-size:14.5px;font-weight:600;transition:border-color .15s}
+.a-link:hover{border-color:var(--orange)}
+.a-link span{font-family:var(--mono);font-size:11.5px;color:var(--text-mute)}
+@media(max-width:700px){.a-links{grid-template-columns:1fr}}
+.a-pane h4{font-family:var(--display);font-size:17px;font-weight:800;margin:28px 0 6px}
+.a-pane h4:first-child{margin-top:0}
+.a-pane .desc{font-size:13px;color:var(--text-mute);margin-bottom:18px}
+.a-pane table{width:100%;border-collapse:collapse;font-size:14px;background:var(--navy-card);border:1px solid #2b3947;border-radius:8px;overflow:hidden}
+.a-pane th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);text-align:left;padding:13px 16px;border-bottom:1px solid #2b3947;font-weight:500}
+.a-pane td{padding:12px 16px;border-bottom:1px solid #223040}
+.a-pane tr:last-child td{border-bottom:none}
+.a-pane td.num,.a-pane th.num{text-align:right;font-family:var(--mono);font-size:13px;white-space:nowrap}
+.a-sop{background:var(--navy-card);border:1px solid #2b3947;border-radius:8px;margin-bottom:10px;overflow:hidden}
+.a-sop summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;font-weight:600;font-size:15px}
+.a-sop summary::-webkit-details-marker{display:none}
+.a-sop summary .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);font-weight:500}
+.a-sop .sop-body{padding:0 20px 18px;font-size:14px;color:var(--text-dim)}
+.a-sop .sop-body ol{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin-top:4px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line-dark);padding:52px 0;background:var(--navy)}
+.foot-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.foot-inner>*{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute)}
+.foot-inner a{text-decoration:none}
+.foot-inner a:hover{color:#fff}
+@media(max-width:700px){.foot-inner{flex-direction:column;align-items:flex-start;gap:14px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#top"><span class="dot"></span>Genrise Logistics</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#support">Support</a></li>
+        <li><a href="#support">Partnerships &amp; pricing</a></li>
+        <li><a href="#qualify">Qualify</a></li>
+      </ul>
+      <a class="nav-cta" href="#qualify">Apply today</a>
+      <button class="nav-admin" onclick="openAdmin()" title="Admin">Admin</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">3PL <span class="alt">· Denmark — Sweden — Norway</span></div>
+        <h1>Scale across<br><span class="hl">Scandinavia.</span></h1>
+        <p class="lead">Genrise Logistics helps ambitious brands enter and grow in the Scandinavian market — fulfilment, freight and local market expertise under one roof.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-orange" href="#support">Get assistance today</a>
+          <a class="btn btn-outline-dark" href="#qualify">How do I qualify?</a>
+        </div>
+        <div class="mono-note">Reach out — we reply within one business day</div>
+      </div>
+      <div class="map" aria-hidden="true">
+        <svg viewBox="0 0 520 500">
+          <!-- grid -->
+          <line class="grid-line" x1="130" y1="60" x2="130" y2="470"/>
+          <line class="grid-line" x1="260" y1="60" x2="260" y2="470"/>
+          <line class="grid-line" x1="390" y1="60" x2="390" y2="470"/>
+          <line class="grid-line" x1="20" y1="180" x2="520" y2="180"/>
+          <line class="grid-line" x1="20" y1="300" x2="520" y2="300"/>
+          <line class="grid-line" x1="20" y1="400" x2="520" y2="400"/>
+          <!-- routes from CPH hub -->
+          <path class="route hot" d="M188,412 C170,340 152,290 148,240"/>
+          <path class="route" d="M188,412 C230,300 280,180 328,120"/>
+          <path class="route" d="M188,412 C300,380 400,300 452,222"/>
+          <path class="route" d="M328,120 C400,140 440,180 452,222"/>
+          <!-- nodes -->
+          <circle class="node muted" cx="366" cy="384" r="6"/>
+          <text class="code muted" x="386" y="390">GOT</text>
+          <text class="city" x="446" y="390">· GOTHENBURG</text>
+
+          <circle class="node" cx="148" cy="240" r="7"/>
+          <text class="code" x="120" y="216">AAL</text>
+          <text class="city hot" x="104" y="238" text-anchor="start" dx="-14" dy="18"></text>
+          <text class="city hot" x="106" y="262">AALBORG</text>
+
+          <circle class="node" cx="328" cy="120" r="7"/>
+          <text class="code" x="348" y="114">OSL</text>
+          <text class="city hot" x="348" y="136">OSLO</text>
+
+          <circle class="node" cx="452" cy="222" r="7"/>
+          <text class="code" x="472" y="216">STO</text>
+          <text class="city hot" x="472" y="240">STOCKHOLM</text>
+
+          <!-- hub -->
+          <circle class="hub-ring" cx="188" cy="412" r="22"/>
+          <circle class="hub" cx="188" cy="412" r="9"/>
+          <text class="code" x="216" y="408">CPH</text>
+          <text class="city hot" x="216" y="432">COPENHAGEN · HUB</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- DAY-TO-DAY -->
+<section class="day" id="support">
+  <div class="wrap">
+    <div class="eyebrow">Day-to-day</div>
+    <h2>Already onboard? Here's where to go.</h2>
+    <p class="lead">Two channels, no guesswork — operational questions in one place, commercial conversations in another.</p>
+    <div class="day-cards">
+      <div class="dcard">
+        <span class="id">GR-01 · Questions</span>
+        <h3>Questions? Use Smartpack.</h3>
+        <p>All operational questions — orders, inventory, shipments and returns — run through Smartpack. It's the fastest way to get an answer from the team handling your goods.</p>
+        <a class="btn btn-outline-light" href="https://app.smartpack.dk" target="_blank" rel="noopener">Open Smartpack</a>
+      </div>
+      <div class="dcard">
+        <span class="id">GR-02 · Partnerships &amp; pricing</span>
+        <h3>Partnerships and price? Let's talk.</h3>
+        <p>Every setup is priced to the brand — volume, channels and markets all shape the model. Contact us to get in touch, and we'll walk you through what a partnership looks like.</p>
+        <a class="btn btn-orange" href="mailto:christian@genrise.com">Contact us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALIFY -->
+<section class="qualify" id="qualify">
+  <div class="wrap">
+    <div class="eyebrow">Selective by design</div>
+    <h2>How do I qualify?</h2>
+    <p class="lead">We only take a selected few brands onboard that fit certain criteria. Fewer partners means deeper focus — and better results for the brands we work with.</p>
+    <div class="q-grid">
+      <div>
+        <div class="crit">
+          <span class="id">CRT-01</span>
+          <div><h3>Product–market fit</h3><p>Your product suits Scandinavian consumers and channels, and you're ready to commit to the region.</p></div>
+        </div>
+        <div class="crit">
+          <span class="id">CRT-02</span>
+          <div><h3>Steady volume</h3><p>You ship consistently today, or have a clear plan to — enough for us to build an efficient setup around.</p></div>
+        </div>
+        <div class="crit">
+          <span class="id">CRT-03</span>
+          <div><h3>Ambition to scale</h3><p>You see Scandinavia as a growth market, not an experiment, and want a partner for the long run.</p></div>
+        </div>
+      </div>
+      <div class="apply-card">
+        <h3>Apply today &amp; get started scaling across Scandinavia.</h3>
+        <p>Tell us about your brand, your volumes and where you want to grow. If it's a fit, we'll set up a call and take it from there.</p>
+        <a class="btn btn-orange" href="mailto:christian@genrise.com?subject=Application%20—%20Genrise%20Logistics">Apply today</a>
+        <span class="mono-note">Applications reviewed weekly</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>Genrise Logistics · DK — SE — NO</span>
+    <a href="mailto:christian@genrise.com" style="text-transform:none;letter-spacing:.06em">christian@genrise.com</a>
+    <span>© 2026 Genrise Logistics. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- ADMIN PORTAL -->
+<div class="admin-overlay" id="adminOverlay" onclick="if(event.target===this)closeAdmin()">
+  <div class="admin-modal">
+    <div class="admin-head">
+      <span class="t">Genrise Logistics · Admin</span>
+      <button class="admin-close" onclick="closeAdmin()" aria-label="Close">×</button>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="a-dash" id="aDash" style="display:block">
+      <div class="a-tabs">
+        <button class="a-tab active" data-pane="overview" onclick="aShowPane(this)">Overview</button>
+        <button class="a-tab" data-pane="prices" onclick="aShowPane(this)">Prices</button>
+        <button class="a-tab" data-pane="sops" onclick="aShowPane(this)">SOPs</button>
+        <button class="a-tab" data-pane="systems" onclick="aShowPane(this)">Systems</button>
+      </div>
+
+      <div class="a-pane active" id="a-pane-overview">
+        <div class="a-kpis">
+          <div class="a-kpi"><div class="k">Active brands</div><div class="v">3</div><div class="s">In warehouse today</div></div>
+          <div class="a-kpi"><div class="k">Cut-off</div><div class="v">14:00</div><div class="s">Same-day dispatch</div></div>
+          <div class="a-kpi"><div class="k">Error rate</div><div class="v">~0%</div><div class="s">Scan-based picking</div></div>
+          <div class="a-kpi"><div class="k">Status</div><div class="v" style="color:#5ec97b">Normal</div><div class="s">No disruptions</div></div>
+        </div>
+        <h4>Shortcuts</h4>
+        <div class="a-links">
+          <a class="a-link" href="https://app.smartpack.dk" target="_blank" rel="noopener">SmartPack WMS <span>app.smartpack.dk ↗</span></a>
+          <a class="a-link" href="#" onclick="aOpenTab('prices');return false">Price list <span>Internal →</span></a>
+          <a class="a-link" href="#" onclick="aOpenTab('sops');return false">SOPs <span>Procedures →</span></a>
+          <a class="a-link" href="https://www.genrise.com/da" target="_blank" rel="noopener">Genrise.com <span>Main site ↗</span></a>
+        </div>
+        <p class="desc" style="margin-top:20px">Numbers are static placeholders — edit them in index.html, or connect to SmartPack data when the backend is built.</p>
+      </div>
+
+      <div class="a-pane" id="a-pane-prices">
+        <h4>Internal price list</h4>
+        <p class="desc">Indicative internal rates. Edit the PRICES list at the bottom of the file.</p>
+        <table id="aPriceTable">
+          <thead><tr><th>Service</th><th>Unit</th><th class="num">Price</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="a-pane" id="a-pane-sops">
+        <h4>Standard Operating Procedures</h4>
+        <p class="desc">Fixed procedures for warehouse operations. Edit the SOPS list at the bottom of the file.</p>
+        <div id="aSopList"></div>
+      </div>
+
+      <div class="a-pane" id="a-pane-systems">
+        <h4>Systems &amp; tools</h4>
+        <p class="desc">One entry point to the systems operations run on.</p>
+        <div class="a-links">
+          <a class="a-link" href="https://app.smartpack.dk" target="_blank" rel="noopener">SmartPack WMS <span>Warehouse ↗</span></a>
+          <a class="a-link" href="https://admin.shopify.com" target="_blank" rel="noopener">Shopify Admin <span>Stores ↗</span></a>
+          <a class="a-link" href="https://adtool.genrise.com" target="_blank" rel="noopener">Genrise Adtool <span>Ads ↗</span></a>
+          <a class="a-link" href="https://vercel.com" target="_blank" rel="noopener">Vercel <span>This site ↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =====================================================
+   ADMIN — edit freely below
+   ===================================================== */
+
+// Internal price list:
+const PRICES = [
+  ["Goods receiving", "per pallet", "DKK 150"],
+  ["Goods receiving", "per parcel", "DKK 25"],
+  ["Storage", "per pallet space / mo.", "DKK 95"],
+  ["Storage", "per shelf space / mo.", "DKK 20"],
+  ["Order handling (pick & pack)", "per order, first item", "DKK 18"],
+  ["Additional order line", "per pc.", "DKK 4"],
+  ["Packaging (standard)", "per order", "DKK 6"],
+  ["Return handling", "per return", "DKK 22"],
+  ["Stock count / inventory", "per hour", "DKK 350"]
+];
+
+// SOPs:
+const SOPS = [
+  { title:"Goods receiving", tag:"SOP-01", steps:[
+    "Check the delivery note against the physical delivery (number of parcels).",
+    "Register the receipt in SmartPack and book the goods in.",
+    "Spot check: open min. 1 parcel per delivery and verify contents.",
+    "Place goods at location and scan the location in.",
+    "Deviations are noted in SmartPack and reported to the brand owner same day."
+  ]},
+  { title:"Pick & pack", tag:"SOP-02", steps:[
+    "Picking always runs via handheld terminal — never from a paper list.",
+    "Scan every item; stop on wrong scan and locate the correct item.",
+    "Pack according to the brand's packing sheet (packaging, inserts, stickers).",
+    "Print label and scan the parcel out as dispatched.",
+    "Orders before cut-off (14:00) must ship the same day."
+  ]},
+  { title:"Return handling", tag:"SOP-03", steps:[
+    "Receive the return and find the order via the return portal reference.",
+    "Quality check the item: new / used / defective.",
+    "New condition: restock at location. Defective: set aside for disposal and note it.",
+    "Register the return reason in SmartPack.",
+    "Crediting follows each brand's own rules (see brand sheet)."
+  ]},
+  { title:"Stock count & inventory", tag:"SOP-04", steps:[
+    "Rolling count: min. one zone per week.",
+    "Discrepancies over 2 pcs. per SKU are investigated same day.",
+    "Full count runs twice a year (January + July).",
+    "Results are logged in SmartPack and shared with brand owners."
+  ]},
+  { title:"Peak readiness (Black Friday / Christmas)", tag:"SOP-05", steps:[
+    "Capacity plan locked by October 1 (staffing, packaging, freight).",
+    "Extra packaging and labels ordered well in advance.",
+    "Cut-off may be temporarily moved earlier — announced min. 1 week ahead.",
+    "Daily status review during the peak period."
+  ]}
+];
+
+/* ===================================================== */
+function openAdmin(){
+  document.getElementById('adminOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  aRenderData();
+}
+function closeAdmin(){
+  document.getElementById('adminOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function aShowPane(btn){
+  document.querySelectorAll('.a-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.a-pane').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('a-pane-'+btn.dataset.pane).classList.add('active');
+}
+function aOpenTab(name){
+  const btn=document.querySelector('.a-tab[data-pane="'+name+'"]');
+  if(btn) aShowPane(btn);
+}
+function aRenderData(){
+  document.querySelector('#aPriceTable tbody').innerHTML =
+    PRICES.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td class="num">'+r[2]+'</td></tr>').join('');
+  document.getElementById('aSopList').innerHTML = SOPS.map(s=>
+    '<details class="a-sop"><summary>'+s.title+'<span class="tag">'+s.tag+'</span></summary>'+
+    '<div class="sop-body"><ol>'+s.steps.map(x=>'<li>'+x+'</li>').join('')+'</ol></div></details>'
+  ).join('');
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAdmin()});
+</script>
+
+</body>
+</html>
